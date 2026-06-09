@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BINUS Library &amp; Knowledge Center — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="admindashboard.css" />
+</head>
+<body>
+
+  <!-- ========== TOP HEADER ========== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-wrap">
+        <div class="logo-mark">
+          <svg viewBox="0 0 50 50" width="40" height="40" aria-hidden="true">
+            <circle cx="25" cy="25" r="10" fill="#f5a623"/>
+            <circle cx="25" cy="25" r="22" fill="none" stroke="#0a2a52" stroke-width="2" stroke-dasharray="6 3" transform="rotate(-30 25 25)"/>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-binus">BINUS</span>
+            <span class="logo-uni">UNIVERSITY</span>
+          </div>
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-library">
+          <div class="lib-binus">BINUS</div>
+          <div class="lib-script">Library</div>
+          <div class="lib-knowledge">&amp; KNOWLEDGE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar-center">
+      <span class="status-label">Server Status:</span>
+      <span class="status-dot"></span>
+      <span class="status-text">Operational</span>
+    </div>
+
+    <div class="topbar-right">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="globalSearch" type="text" placeholder="Search systems..." />
+      </div>
+      <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge-dot"></span>
+      </button>
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+        <div>
+          <div class="profile-name">LKC Staff</div>
+          <div class="profile-role">Administrator</div>
+        </div>
+      </div>
+
+      <div class="profile-user">
+        <div class="avatar">
+          <img alt="Alex Rivera" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" onerror="this.style.display='none'"/>
+        </div>
+        <div>
+          <div class="profile-name">Alex Rivera</div>
+          <div class="profile-role">Senior Librarian</div>
+        </div>
+      </div>
+
+      <nav class="side-nav" id="sideNav">
+        <a href="#" class="nav-item active" data-page="dashboard">
+          <i class="fa-solid fa-table-cells-large"></i><span>Dashboard Home</span>
+        </a>
+        <a href="#" class="nav-item" data-page="books">
+          <i class="fa-solid fa-book"></i><span>Manage Books &amp; Jurnal</span>
+        </a>
+        <a href="#" class="nav-item" data-page="rooms">
+          <i class="fa-solid fa-door-open"></i><span>Room Reservations</span>
+        </a>
+        <a href="#" class="nav-item" data-page="borrowing">
+          <i class="fa-solid fa-id-card"></i><span>Borrowing Management</span>
+        </a>
+        <a href="#" class="nav-item" data-page="monitoring">
+          <i class="fa-solid fa-wave-square"></i><span>System Monitoring</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main" id="mainContent">
+      <!-- pages injected by JS -->
+    </main>
+  </div>
+
+     <!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-top">
+  
+        <div class="footer-left">
+  
+            <h3>
+                BINUS Library & Knowledge Center
+            </h3>
+  
+            <p>
+                Email: library@binus.edu
+            </p>
+  
+            <p>
+                WA: 0851-8307-0004
+            </p>
+  
+        </div>
+  
+        <div class="footer-middle">
+  
+            <a href="#">
+                About Us
+            </a>
+  
+            <a href="#">
+                Terms of Service
+            </a>
+  
+            <a href="#">
+                Contact Info
+            </a>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+            <div class="footer-links">
+  
+                <h3>Links</h3>
+  
+                <p>BINUS Support</p>
+  
+                <p>BINUS Library Linktree</p>
+  
+            </div>
+  
+            <div class="social-icons">
+  
+                <button>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+  
+                <button>
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+  
+            </div>
+  
+        </div>
+  
+    </div>
+  
+    <div class="copyright">
+  
+        © 2024 New Library System.
+        All rights reserved.
+  
+    </div>
+  
+  </footer>
+
+  <!-- ========== TOAST CONTAINER ========== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ========== MODAL ========== -->
+  <div id="modalRoot" class="modal-root hidden">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" id="modalCard"></div>
+  </div>
+
+  <script src="admindashboard.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

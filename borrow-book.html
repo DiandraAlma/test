@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Borrow Book</title>
+
+    <link
+    rel="stylesheet"
+    href="css/borrow-book.css">
+
+    <!-- FONT AWESOME -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+ <!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo-section">
+  
+        <img
+        src="assets/logo-LKC.png"
+        class="navbar-logo">
+  
+    </div>
+  
+    <nav>
+  
+        <ul class="nav-links">
+  
+            <li>
+                <a href="dashboard.html">
+                    Home
+                </a>
+            </li>
+  
+            <li>
+                <a href="catalog.html"
+                class="active">
+                    Catalog
+                </a>
+            </li>
+  
+            <li>
+                <a href="myshelf.html">
+                    My Shelf
+                </a>
+            </li>
+  
+            <li>
+                <a href="studyroom.html">
+                    Study Room
+                </a>
+            </li>
+  
+            <li>
+                <a href="support.html">
+                    Support
+                </a>
+            </li>
+  
+        </ul>
+  
+    </nav>
+  
+    <div class="dashboard-right">
+  
+        <div class="top-search">
+  
+            <i class="fa-solid fa-magnifying-glass"></i>
+  
+            <span>Search</span>
+  
+        </div>
+  
+        <div class="profile-icon">
+  
+            <i class="fa-solid fa-user"></i>
+  
+        </div>
+  
+    </div>
+  
+  </header>
+
+    <!-- MAIN -->
+    <main class="borrow-container">
+
+        <!-- BREADCRUMB -->
+        <p class="breadcrumb">
+
+            Catalog > Engineering >
+            <span>
+                The Pragmatic Engineer
+            </span>
+
+        </p>
+
+        <!-- TOP SECTION -->
+        <section class="book-top">
+
+            <!-- LEFT -->
+            <div class="book-gallery">
+
+                <div class="main-image">
+
+                    <img
+                    src="assets/the.jpeg">
+
+                    <button class="wishlist-btn">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+                <div class="small-images">
+
+                    <div class="small-box"></div>
+
+                    <div class="small-box"></div>
+
+                    <div class="small-box more-box">
+
+                        +2 More
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="book-details">
+
+                <span class="best-seller">
+                    Academic Bestseller
+                </span>
+
+                <h1>
+                    The Pragmatic Engineer
+                </h1>
+
+                <p class="author">
+                    by Gergely Orosz
+                </p>
+
+                <!-- BUTTONS -->
+                <div class="book-buttons">
+
+                    <button class="read-btn">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        Read Online
+
+                    </button>
+
+                    <button class="share-btn">
+
+                        <i class="fa-solid fa-share-nodes"></i>
+
+                    </button>
+
+                    <button
+                    class="borrow-btn"
+                    onclick="goToConfirmation()">
+
+                        <i class="fa-regular fa-bookmark"></i>
+
+                        Borrow Book
+
+                    </button>
+
+                </div>
+
+                <!-- INFO -->
+                <div class="book-info-grid">
+
+                    <div>
+
+                        <span>ISBN</span>
+
+                        <h4>
+                            978-1234567890
+                        </h4>
+
+                    </div>
+
+                    <div>
+
+                        <span>FORMAT</span>
+
+                        <h4>
+                            Hardcover, E-book
+                        </h4>
+
+                    </div>
+
+                    <div>
+
+                        <span>LANGUAGE</span>
+
+                        <h4>
+                            English
+                        </h4>
+
+                    </div>
+
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="description">
+
+                    <h2>
+                        Description
+                    </h2>
+
+                    <p>
+
+                        A guide for software engineers and managers
+                        to navigate the complexities of modern software
+                        development. This book covers everything from
+                        career progression, high-scale architecture,
+                        to the cultural aspects of high-performing
+                        engineering teams.
+
+                    </p>
+
+                    <button class="read-more">
+
+                        Read More
+
+                        <i class="fa-solid fa-angle-down"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- BRANCH -->
+                <div class="branch-section">
+
+                    <h2>
+                        Branch Availability
+                    </h2>
+
+                    <table>
+
+                        <tr>
+
+                            <th>
+                                CAMPUS BRANCH
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                LOCATION
+                            </th>
+
+                            <th></th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Binus Anggrek
+                            </td>
+
+                            <td>
+
+                                <span class="available">
+                                    Available
+                                </span>
+
+                            </td>
+
+                            <td>
+                                L4, Shelf 12A
+                            </td>
+
+                            <td>
+                                Locate
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Binus Syahdan
+                            </td>
+
+                            <td>
+
+                                <span class="reserved">
+                                    Reserved
+                                </span>
+
+                            </td>
+
+                            <td>
+                                L2, Shelf 05B
+                            </td>
+
+                            <td>
+                                Queue
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Binus Alam Sutera
+                            </td>
+
+                            <td>
+
+                                <span class="borrowed">
+                                    Borrowed
+                                </span>
+
+                            </td>
+
+                            <td>
+                                Due Oct 24
+                            </td>
+
+                            <td>
+                                Notify Me
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <!-- REVIEW -->
+                <div class="review-box">
+
+                    <div class="rating-left">
+
+                        <h1>
+                            4.9
+                        </h1>
+
+                        <div class="stars">
+
+                            ★★★★★
+
+                        </div>
+
+                        <p>
+                            128 Academic Reviews
+                        </p>
+
+                    </div>
+
+                    <button class="review-btn">
+
+                        Write a Review
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RELATED -->
+        <section class="related-section">
+
+            <div class="related-header">
+
+                <h2>
+                    Related in Engineering
+                </h2>
+
+                <a href="#">
+
+                    View Collection
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+            <div class="related-books">
+
+                <div class="related-card">
+
+                    <img
+                    src="assets/the quantum frontier.jpeg">
+
+                    <span class="available">
+                        AVAILABLE
+                    </span>
+
+                    <h3>
+                        Clean Architecture
+                    </h3>
+
+                    <p>
+                        Robert C. Martin
+                    </p>
+
+                </div>
+
+                <div class="related-card">
+
+                    <img
+                    src="assets/sustainable.jpeg">
+
+                    <span class="reserved">
+                        RESERVED
+                    </span>
+
+                    <h3>
+                        Deep Learning
+                    </h3>
+
+                    <p>
+                        Ian Goodfellow
+                    </p>
+
+                </div>
+
+                <div class="related-card">
+
+                    <img
+                    src="assets/cyber.jpeg">
+
+                    <span class="available">
+                        AVAILABLE
+                    </span>
+
+                    <h3>
+                        The Art of Invisibility
+                    </h3>
+
+                    <p>
+                        Kevin Mitnick
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+     <!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-top">
+  
+        <div class="footer-left">
+  
+            <h3>
+                BINUS Library & Knowledge Center
+            </h3>
+  
+            <p>
+                Email: library@binus.edu
+            </p>
+  
+            <p>
+                WA: 0851-8307-0004
+            </p>
+  
+        </div>
+  
+        <div class="footer-middle">
+  
+            <a href="#">
+                About Us
+            </a>
+  
+            <a href="#">
+                Terms of Service
+            </a>
+  
+            <a href="#">
+                Contact Info
+            </a>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+            <div class="footer-links">
+  
+                <h3>Links</h3>
+  
+                <p>BINUS Support</p>
+  
+                <p>BINUS Library Linktree</p>
+  
+            </div>
+  
+            <div class="social-icons">
+  
+                <button>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+  
+                <button>
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+  
+            </div>
+  
+        </div>
+  
+    </div>
+  
+    <div class="copyright">
+  
+        © 2024 New Library System.
+        All rights reserved.
+  
+    </div>
+  
+  </footer>
+
+    <script src="js/borrow-book.js"></script>
+
+</body>
+</html>

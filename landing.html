@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BINUS Library & Knowledge</title>
+<link rel="stylesheet" href="landing.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="lp-navbar">
+  <div class="lp-nav-left">
+    <img src="logo.png" alt="Binus Library" class="lp-logo" />
+  </div>
+  <nav class="lp-nav-links">
+    <a href="#" class="lp-link">Catalog</a>
+    <a href="#" class="lp-link">My Shelf</a>
+    <a href="#" class="lp-link">Study Room</a>
+    <a href="#" class="lp-link">Support</a>
+  </nav>
+  <div class="lp-nav-right">
+    <button class="lp-search-btn" id="lpSearchToggle">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
+    </button>
+    <a href="index.html" class="lp-login-btn">
+      <i class="fa-solid fa-right-to-bracket"></i> Login
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="lp-hero">
+  <div class="lp-hero-overlay"></div>
+  <div class="lp-hero-content">
+    <h1>Discover the Nexus of<br/>Knowledge &amp; Innovation</h1>
+    <p>Access over 5 million digital resources, reserve study spaces, and connect with peer researchers through our modernized university catalog.</p>
+    <div class="lp-hero-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="lpSearch" placeholder="Search books, journals, theses, and more..." />
+      <button id="lpSearchGo">Search</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE CARDS ===== -->
+<section class="lp-services">
+  <div class="lp-service-card" data-link="index.html">
+    <i class="fa-solid fa-book-open"></i>
+    <h3>Browse Catalog</h3>
+    <p>Explore physical and digital collections.</p>
+  </div>
+  <div class="lp-service-card" data-link="index.html">
+    <i class="fa-solid fa-door-open"></i>
+    <h3>Room Booking</h3>
+    <p>Reserve quiet zones and group study rooms.</p>
+  </div>
+  <div class="lp-service-card" data-link="index.html">
+    <i class="fa-solid fa-newspaper"></i>
+    <h3>E-Journals</h3>
+    <p>Instant access to academic research papers.</p>
+  </div>
+  <div class="lp-service-card" data-link="index.html">
+    <i class="fa-solid fa-comments"></i>
+    <h3>Librarian Chat</h3>
+    <p>Get expert research assistance in real-time.</p>
+  </div>
+</section>
+
+<!-- ===== NEW ARRIVALS ===== -->
+<section class="lp-arrivals">
+  <div class="lp-arrivals-head">
+    <div>
+      <h2>New Arrivals</h2>
+      <p>Curated recent additions to our academic repository.</p>
+    </div>
+    <div class="lp-arrows">
+      <button id="lpPrev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="lpNext"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+  <div class="lp-book-row" id="lpBookRow"></div>
+</section>
+
+     <!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-top">
+  
+        <div class="footer-left">
+  
+            <h3>
+                BINUS Library & Knowledge Center
+            </h3>
+  
+            <p>
+                Email: library@binus.edu
+            </p>
+  
+            <p>
+                WA: 0851-8307-0004
+            </p>
+  
+        </div>
+  
+        <div class="footer-middle">
+  
+            <a href="#">
+                About Us
+            </a>
+  
+            <a href="#">
+                Terms of Service
+            </a>
+  
+            <a href="#">
+                Contact Info
+            </a>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+            <div class="footer-links">
+  
+                <h3>Links</h3>
+  
+                <p>BINUS Support</p>
+  
+                <p>BINUS Library Linktree</p>
+  
+            </div>
+  
+            <div class="social-icons">
+  
+                <button>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+  
+                <button>
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+  
+            </div>
+  
+        </div>
+  
+    </div>
+  
+    <div class="copyright">
+  
+        © 2024 New Library System.
+        All rights reserved.
+  
+    </div>
+  
+  </footer>
+
+<script src="landing.js"></script>
+</body>
+</html>

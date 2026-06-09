@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BINUS Library & Knowledge</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============ LOGIN PAGE ============ -->
+<section id="page-login" class="page active">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="logo.png" alt="Binus Library" />
+      </div>
+      <h1>Welcome Back</h1>
+      <p class="muted">Sign in to access your academic resources</p>
+
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="binusian">Binusian</button>
+        <button class="role-tab" data-role="admin">Admin</button>
+      </div>
+
+      <form id="loginForm" autocomplete="off">
+        <label>Email Address</label>
+        <div class="input-icon">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" id="loginEmail" placeholder="name@binus.ac.id" required />
+        </div>
+
+        <label>Password</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+          <i class="fa-regular fa-eye toggle-eye" id="toggleEye"></i>
+        </div>
+
+        <div class="row-between small">
+          <label class="checkbox"><input type="checkbox" /> Remember Me</label>
+          <a href="#" class="link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary-dark">Login</button>
+
+        <div class="divider"><span>or continue with</span></div>
+
+        <div class="social-buttons">
+          <button type="button" class="btn-outline"><i class="fa-brands fa-microsoft"></i> Microsoft</button>
+          <button type="button" class="btn-outline"><i class="fa-solid fa-key"></i> SSO</button>
+        </div>
+
+        <p class="center small">Don't have an account? <a href="#" class="link">Sign Up</a></p>
+        <p class="center xs muted">Hint: gunakan email @binus.ac.id (binusian) atau admin@binus.ac.id (admin)</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN APP SHELL ============ -->
+<div id="app-shell" class="hidden">
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Binus Library" class="nav-logo" />
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="nav-link" data-page="home">Home</a>
+      <a href="#" class="nav-link" data-page="catalog">Catalog</a>
+      <a href="#" class="nav-link" data-page="myshelf">My Shelf</a>
+      <a href="#" class="nav-link" data-page="studyroom">Study Room</a>
+      <a href="#" class="nav-link" data-page="support">Support</a>
+      <a href="#" class="nav-link" data-page="faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="navSearchInput" placeholder="Search books, journals..." />
+      </div>
+      <button class="icon-btn" id="bellBtn" aria-label="Notifications">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge" id="bellBadge">0</span>
+      </button>
+      <button class="icon-btn" id="profileBtn" aria-label="Profile">
+        <i class="fa-regular fa-user"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Notifications Dropdown ===== -->
+  <div id="notifDropdown" class="dropdown hidden">
+    <div class="dropdown-header">
+      <strong>Notifications</strong>
+      <button class="link" id="clearNotif">Clear all</button>
+    </div>
+    <ul id="notifList"></ul>
+  </div>
+
+  <!-- ===== Search Results Dropdown ===== -->
+  <div id="searchDropdown" class="dropdown search-drop hidden">
+    <ul id="searchResults"></ul>
+  </div>
+
+  <!-- ============ HOME ============ -->
+  <section id="page-home" class="page">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Discover the <span class="accent">Nexus</span> of Knowledge & Innovation</h1>
+        <p>Akses ribuan buku, jurnal, e-resources, dan ruang belajar — semua dari satu tempat.</p>
+        <div class="hero-search">
+          <input type="text" id="heroSearch" placeholder="Search books, journals, theses, and more..." />
+          <button class="btn-primary" id="heroSearchBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="hero.jpg" alt="Library" />
+      </div>
+    </div>
+
+    <h2 class="section-title">Quick Services</h2>
+    <div class="service-grid">
+      <div class="service-card" data-page="catalog">
+        <i class="fa-solid fa-book"></i>
+        <h3>Browse Catalog</h3>
+        <p>Cari koleksi buku & jurnal akademik.</p>
+      </div>
+      <div class="service-card" data-page="studyroom">
+        <i class="fa-solid fa-door-open"></i>
+        <h3>Room Booking</h3>
+        <p>Reservasi ruang diskusi & belajar.</p>
+      </div>
+      <div class="service-card" id="ejournalCard">
+        <i class="fa-solid fa-newspaper"></i>
+        <h3>E-Journals</h3>
+        <p>Akses jurnal digital internasional.</p>
+      </div>
+      <div class="service-card" id="chatCard">
+        <i class="fa-solid fa-comments"></i>
+        <h3>Librarian Chat</h3>
+        <p>Konsultasi langsung dengan pustakawan.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Hello, <span id="userGreet">Binusian</span></h2>
+    <div class="dash-grid">
+      <div class="dash-card">
+        <h4>Next Due Date</h4>
+        <p class="big" id="nextDue">—</p>
+        <small id="nextDueBook">No active loans</small>
+      </div>
+      <div class="dash-card">
+        <h4>Room Reservation</h4>
+        <p class="big" id="nextRoom">—</p>
+        <small id="nextRoomTime">No reservation</small>
+      </div>
+      <div class="dash-card">
+        <h4>Library Fines</h4>
+        <p class="big">Rp 0</p>
+        <small>You're all clear!</small>
+      </div>
+    </div>
+
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="book-row" id="newArrivals"></div>
+  </section>
+
+  <!-- ============ CATALOG ============ -->
+  <section id="page-catalog" class="page">
+    <div class="catalog-wrap">
+      <aside class="filter-sidebar">
+        <h3>Search Filters</h3>
+        <div class="filter-block">
+          <h4>Category</h4>
+          <label><input type="checkbox" class="f-cat" value="Science" /> Science</label>
+          <label><input type="checkbox" class="f-cat" value="Technology" /> Technology</label>
+          <label><input type="checkbox" class="f-cat" value="Engineering" /> Engineering</label>
+          <label><input type="checkbox" class="f-cat" value="Mathematics" /> Mathematics</label>
+          <label><input type="checkbox" class="f-cat" value="Business" /> Business</label>
+          <label><input type="checkbox" class="f-cat" value="Design" /> Design</label>
+        </div>
+        <div class="filter-block">
+          <h4>Material Type</h4>
+          <label><input type="radio" name="ftype" value="all" checked /> All</label>
+          <label><input type="radio" name="ftype" value="Book" /> Books</label>
+          <label><input type="radio" name="ftype" value="Journal" /> Journals</label>
+        </div>
+        <div class="filter-block">
+          <h4>Advanced Search</h4>
+          <input type="text" id="advKeyword" placeholder="Keywords" />
+          <input type="text" id="advAuthor" placeholder="Author" />
+        </div>
+        <button class="btn-primary" id="applyFilter">SEARCH</button>
+        <button class="btn-outline" id="clearFilter">Clear All</button>
+      </aside>
+      <main class="catalog-main">
+        <div class="row-between">
+          <p><span id="resultCount">0</span> results</p>
+          <select id="sortBy">
+            <option value="relevance">Relevance</option>
+            <option value="title">Title (A-Z)</option>
+            <option value="year">Year (Newest)</option>
+          </select>
+        </div>
+        <div class="book-grid" id="catalogGrid"></div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ============ BOOK DETAIL ============ -->
+  <section id="page-book" class="page">
+    <div class="breadcrumb"><a href="#" data-page="catalog">Catalog</a> / <span id="bcBook">Book</span></div>
+    <div class="book-detail">
+      <div class="book-detail-img">
+        <img id="bdImg" src="" alt="" />
+      </div>
+      <div class="book-detail-info">
+        <h1 id="bdTitle"></h1>
+        <p class="author">by <span id="bdAuthor"></span></p>
+        <div class="rating"><i class="fa-solid fa-star"></i> <span id="bdRating">4.8</span> · <span id="bdReviews">124</span> reviews</div>
+        <div class="actions">
+          <button class="btn-outline-blue" id="readOnlineBtn"><i class="fa-regular fa-eye"></i> Read Online</button>
+          <button class="btn-primary" id="borrowBtn"><i class="fa-solid fa-book"></i> Borrow Book</button>
+        </div>
+        <div class="meta-grid">
+          <div><span class="label">ISBN</span><span id="bdISBN"></span></div>
+          <div><span class="label">Format</span><span id="bdFormat"></span></div>
+          <div><span class="label">Language</span><span id="bdLang"></span></div>
+          <div><span class="label">Year</span><span id="bdYear"></span></div>
+        </div>
+        <h3>Description</h3>
+        <p id="bdDesc"></p>
+        <h3>Branch Availability</h3>
+        <table class="branch-table">
+          <thead><tr><th>Campus</th><th>Status</th><th>Location</th></tr></thead>
+          <tbody id="branchBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BORROW CONFIRM ============ -->
+  <section id="page-borrow" class="page">
+    <div class="breadcrumb"><a href="#" data-page="catalog">Catalog</a> / <span>Borrow Book</span></div>
+    <div class="confirm-wrap">
+      <div class="confirm-img"><img id="borrowImg" src="" alt="" /></div>
+      <div class="confirm-info">
+        <h2>Borrow Book</h2>
+        <p><span class="label">Title</span><strong id="borrowTitle"></strong></p>
+        <p><span class="label">Author</span><span id="borrowAuthor"></span></p>
+        <p><span class="label">Borrow Date</span><span id="borrowDate"></span></p>
+        <p><span class="label">Return Due Date</span><span id="returnDate"></span> (14 days)</p>
+        <p><span class="label">Pickup Location</span> BINUS Anggrek Library, Floor 4</p>
+
+        <label class="checkbox big">
+          <input type="checkbox" id="agreeBorrow" />
+          Saya menyetujui Library Terms of Service dan kebijakan akademik.
+        </label>
+        <div class="row">
+          <button class="btn-outline" id="cancelBorrow">Cancel</button>
+          <button class="btn-primary" id="confirmBorrow" disabled>Confirm Borrowing</button>
+        </div>
+        <p class="muted small"><i class="fa-solid fa-circle-info"></i> Pastikan tanggal dan judul sudah sesuai sebelum konfirmasi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STUDY ROOM ============ -->
+  <section id="page-studyroom" class="page">
+    <h1 class="page-title">Reserve a Study Space</h1>
+    <div class="studyroom-wrap">
+      <div class="room-grid" id="roomGrid"></div>
+      <aside class="reserve-side">
+        <h3>Reservation Details</h3>
+        <label>Date</label>
+        <input type="date" id="roomDate" />
+        <label>Time Slot</label>
+        <select id="roomSlot">
+          <option value="08:00 - 10:00">08:00 - 10:00</option>
+          <option value="10:00 - 12:00">10:00 - 12:00</option>
+          <option value="13:00 - 15:00">13:00 - 15:00</option>
+          <option value="15:00 - 17:00">15:00 - 17:00</option>
+          <option value="17:00 - 19:00">17:00 - 19:00</option>
+        </select>
+        <label>Selected Room</label>
+        <input type="text" id="selectedRoom" readonly placeholder="Pilih ruangan di samping" />
+        <button class="btn-primary" id="bookRoomBtn"><i class="fa-solid fa-door-open"></i> Book Room</button>
+        <p class="muted small">Maksimal 1 reservasi aktif per hari.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ MY SHELF ============ -->
+  <section id="page-myshelf" class="page">
+    <h1 class="page-title">My Shelf</h1>
+    <div class="tabs">
+      <button class="tab active" data-tab="borrowed">Currently Borrowed</button>
+      <button class="tab" data-tab="history">History</button>
+      <button class="tab" data-tab="rooms">Room Reservations</button>
+    </div>
+    <div id="tab-borrowed" class="tab-panel active">
+      <div class="book-grid" id="borrowedList"></div>
+    </div>
+    <div id="tab-history" class="tab-panel">
+      <div class="book-grid" id="historyList"></div>
+    </div>
+    <div id="tab-rooms" class="tab-panel">
+      <table class="branch-table">
+        <thead><tr><th>Room</th><th>Date</th><th>Slot</th><th>Status</th><th></th></tr></thead>
+        <tbody id="myRooms"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORT ============ -->
+  <section id="page-support" class="page">
+    <h1 class="page-title">Support Center</h1>
+    <div class="support-grid">
+      <div class="support-card"><i class="fa-solid fa-envelope"></i><h3>Email Us</h3><p>library@binus.ac.id</p></div>
+      <div class="support-card"><i class="fa-solid fa-phone"></i><h3>Call Us</h3><p>+62 21 5345 830</p></div>
+      <div class="support-card"><i class="fa-solid fa-location-dot"></i><h3>Visit Us</h3><p>Kampus Anggrek, Lt. 4</p></div>
+    </div>
+    <h3>Send a Message</h3>
+    <form id="supportForm" class="support-form">
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Your email" required />
+      <select required>
+        <option value="">Topic</option>
+        <option>Book Borrowing</option>
+        <option>Room Reservation</option>
+        <option>Account Issue</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Tell us how we can help..." rows="5" required></textarea>
+      <button class="btn-primary" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="page-faq" class="page">
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <!-- ============ PROFILE (centered modal page) ============ -->
+  <section id="page-profile" class="page">
+    <div class="profile-center">
+      <div class="profile-card">
+        <img src="profile.jpg" alt="Profile" class="profile-avatar" />
+        <h2 id="pfName">Binusian</h2>
+        <p class="muted" id="pfEmail">user@binus.ac.id</p>
+        <span class="role-pill" id="pfRole">Binusian</span>
+
+        <div class="profile-stats">
+          <div><strong id="pfBorrow">0</strong><small>Books Borrowed</small></div>
+          <div><strong id="pfRooms">0</strong><small>Room Booked</small></div>
+          <div><strong>Rp 0</strong><small>Fines</small></div>
+        </div>
+
+        <div class="profile-info">
+          <p><span class="label">NIM</span> 2602012345</p>
+          <p><span class="label">Faculty</span> School of Computer Science</p>
+          <p><span class="label">Program</span> Computer Science</p>
+          <p><span class="label">Member Since</span> Aug 2024</p>
+        </div>
+
+        <button class="btn-outline" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ ONBOARDING MODAL ============ -->
+<div id="onboardModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="onboard-step active" data-step="1">
+      <i class="fa-solid fa-graduation-cap big-icon"></i>
+      <h2>Welcome to BINUS Library!</h2>
+      <p>Pusat pengetahuan & inovasi Anda. Yuk kenalan dulu dengan fitur-fiturnya (5 langkah singkat).</p>
+    </div>
+    <div class="onboard-step" data-step="2">
+      <i class="fa-solid fa-magnifying-glass big-icon"></i>
+      <h2>Search & Catalog</h2>
+      <p>Gunakan kolom <strong>Search</strong> di navbar atau buka <strong>Catalog</strong> untuk cari buku & jurnal berdasarkan kategori atau penulis.</p>
+    </div>
+    <div class="onboard-step" data-step="3">
+      <i class="fa-solid fa-book big-icon"></i>
+      <h2>Pinjam Buku</h2>
+      <p>Klik buku → <strong>Borrow Book</strong>. Periksa kembali detail & tanggal pengembalian, lalu setujui ketentuan sebelum konfirmasi.</p>
+    </div>
+    <div class="onboard-step" data-step="4">
+      <i class="fa-solid fa-door-open big-icon"></i>
+      <h2>Booking Ruang Belajar</h2>
+      <p>Buka <strong>Study Room</strong>, pilih ruangan, tanggal & slot waktu. Pastikan info sesuai sebelum konfirmasi reservasi.</p>
+    </div>
+    <div class="onboard-step" data-step="5">
+      <i class="fa-regular fa-bell big-icon"></i>
+      <h2>Notifikasi & Profil</h2>
+      <p>Ikon <strong>lonceng</strong> menampilkan notifikasi setiap aktivitas Anda. Ikon <strong>profil</strong> membuka info akun Anda.</p>
+    </div>
+    <div class="onboard-controls">
+      <button class="link" id="skipOnboard">Skip</button>
+      <div class="dots" id="onboardDots"></div>
+      <button class="btn-primary" id="nextOnboard">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONFIRM MODAL (generic) ============ -->
+<div id="confirmModal" class="modal hidden">
+  <div class="modal-card sm">
+    <i class="fa-solid fa-circle-question big-icon warn"></i>
+    <h2 id="cmTitle">Konfirmasi</h2>
+    <p id="cmBody">Apakah Anda yakin?</p>
+    <div class="row">
+      <button class="btn-outline" id="cmCancel">Batal</button>
+      <button class="btn-primary" id="cmOk">Ya, Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SUCCESS MODAL ============ -->
+<div id="successModal" class="modal hidden">
+  <div class="modal-card sm">
+    <i class="fa-solid fa-circle-check big-icon ok"></i>
+    <h2 id="smTitle">Berhasil!</h2>
+    <p id="smBody"></p>
+    <div class="row">
+      <button class="btn-outline" id="smBackCat">Back to Catalog</button>
+      <button class="btn-primary" id="smShelf">Go to My Shelf</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+
+     <!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-top">
+  
+        <div class="footer-left">
+  
+            <h3>
+                BINUS Library & Knowledge Center
+            </h3>
+  
+            <p>
+                Email: library@binus.edu
+            </p>
+  
+            <p>
+                WA: 0851-8307-0004
+            </p>
+  
+        </div>
+  
+        <div class="footer-middle">
+  
+            <a href="#">
+                About Us
+            </a>
+  
+            <a href="#">
+                Terms of Service
+            </a>
+  
+            <a href="#">
+                Contact Info
+            </a>
+  
+        </div>
+  
+        <div class="footer-right">
+  
+            <div class="footer-links">
+  
+                <h3>Links</h3>
+  
+                <p>BINUS Support</p>
+  
+                <p>BINUS Library Linktree</p>
+  
+            </div>
+  
+            <div class="social-icons">
+  
+                <button>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+  
+                <button>
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+  
+            </div>
+  
+        </div>
+  
+    </div>
+  
+    <div class="copyright">
+  
+        © 2024 New Library System.
+        All rights reserved.
+  
+    </div>
+  
+  </footer>
+  
+<script src="app.js"></script>
+</body>
+</html>
